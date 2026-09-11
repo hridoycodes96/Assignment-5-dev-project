@@ -1,6 +1,7 @@
 
 
 import Banner from "./components/Banner"
+import Explor from "./components/Explor"
 import Nav from "./components/Nav"
 
 
@@ -12,6 +13,7 @@ function App() {
     <>
       <Nav></Nav>
       <Banner></Banner>
+      <Explor></Explor>
       
     </>
   )

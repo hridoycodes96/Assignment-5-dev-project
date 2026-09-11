@@ -6,7 +6,7 @@ const Banner = () => {
             <div className='w-[50%]'>
                 <h1 className='text-5xl font-bold'>Build your Ideal</h1>
                 <h1 className='text-5xl font-bold'>Development Stack</h1>
-                <p className='mt-6'>Explore frontend,backend,database,and tooling options,compare them side by side,and put together the stack that fits your next project.</p>
+                <p className='mt-6 text-[#64748B]'>Explore frontend,backend,database,and tooling options,compare them side by side,and put together the stack that fits your next project.</p>
 
                 <div className='mt-14'>
                     <button className="btn btn-active btn-secondary">Secondary</button>

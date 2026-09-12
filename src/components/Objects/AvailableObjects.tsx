@@ -11,16 +11,35 @@ interface tipo{
 const AvailableObjects = ({ objects }:tipo) => {
     // console.log(objects, "players from avil")
 
+    // const [isSelected, setIsSelected]= useState(false)
+
+//    isSelected={isSelected}
+//     setIsSelected={setIsSelected}
+
+    const [addItem,setAddItem] = useState<Iobject[]>([]);
+    //  const [visitedData,setVisitedData] = useState<string[]>([]);
     
-   
+    const handleVisitedItem = (object:Iobject):void =>{
+        const newAddItem =[...addItem,object];
+        setAddItem(newAddItem);
+    }
 
 
-    return (
+    const [visitedData,setVisitedData] = useState<string[]>([]);
+    const handleVisitedData = (flag:string):void=>{
+        const newVisitedData =[...visitedData,flag];
+        setVisitedData(newVisitedData)
+    }
+
+    return ( 
         <div className='container mx-auto grid grid-cols-4 gap-6 mt-6 '>
             <div className='col-span-3 grid grid-cols-3 gap-4'>
                 {
                     objects.map((object: Iobject) => {
-                        return ( <ObjectsCard object ={object} />
+                        return ( <ObjectsCard 
+                            handleVisitedItem = {handleVisitedItem}
+                            handleVisitedData = {handleVisitedData}
+                            object ={object} />
                             // <div className='p-6 border rounded-4xl'>
                             //     <div className='flex items-center justify-between '>
 
@@ -65,8 +84,13 @@ const AvailableObjects = ({ objects }:tipo) => {
             <div>
                 <div className="border rounded-xl p-5 h-fit">
         <h2 className="font-bold text-lg">
-          Your Stack:
+          Your Stack:{addItem.length}
         </h2>
+        <h2>
+          {visitedData}
+        </h2>
+
+
 
         <p
        
@@ -78,8 +102,11 @@ const AvailableObjects = ({ objects }:tipo) => {
 
         <div className="border border-dashed rounded-lg p-5 mt-5 text-center">
           <p className="text-sm text-gray-400">
-            Your stack is empty.
+            Your stack is empty.{setAddItem.length}
           </p>
+          
+            
+          
         </div>
       </div>
             </div>

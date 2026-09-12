@@ -1,48 +1,75 @@
 import React, { useState } from 'react';
 import type { Iobject } from '../../types/objectType';
 
-const ObjectsCard = ({object}:{object:Iobject}) => {
+interface sourov {
+    object: Iobject;
+    // isSelected?: boolean;
+    // setIsSelected?: Dispatch<SetStateAction<boolean>>;
+    handleVisitedItem:(object:Iobject)=>void;
+    handleVisitedData:(flag:string)=>void
 
+}
 
+const ObjectsCard = ({ object,handleVisitedItem,handleVisitedData }: sourov) => {
 
     const [isSelected, setIsSelected]= useState(true)
 
+    const handleSelectObject = () => {
+        // setIsSelected(false)
+        if(isSelected===true){
+            setIsSelected(false)
+        }
+        else{
+            setIsSelected(true)
+        }
+        handleVisitedItem(object);
+        handleVisitedData(object.name)
+        
+    };
 
-    
+
+
     return (
-         <div className='p-6 border rounded-4xl'>
-                                <div className='flex items-center justify-between '>
+        <div className='p-6 border rounded-4xl'>
+            <div className='flex items-center justify-between '>
 
-                                    <img src={object.icon} alt="" className='h-12 w-12' />
+                <img src={object.icon} alt="" className='h-12 w-12' />
 
-                                    <button className="btn bg-emerald-100 text-blue-500 rounded-4xl">{object.badge}</button>
+                <button className="btn bg-emerald-100 text-blue-500 rounded-4xl">{object.badge}</button>
 
-                                </div>
-                                <div>
-                                    <h1 className='text-5xl font-bold mt-7'>{object.name}</h1>
-                                </div>
-                                <div>
-                                    <p className='text-[#64748B] mt-5'>{object.description}</p>
-                                </div>
+            </div>
+            <div>
+                <h1 className='text-5xl font-bold mt-7'>{object.name}</h1>
+            </div>
+            <div>
+                <p className='text-[#64748B] mt-5'>{object.description}</p>
+            </div>
 
 
 
-                                <div className='flex items-center justify-between font-bold mt-12'>
-                                    <button className='p-2 bg-green-100'>{object.category}</button>
+            <div className='flex items-center justify-between font-bold mt-12'>
+                <button className='p-2 bg-green-100'>{object.category}</button>
 
-                                    <h3>{object.difficulty}</h3>
-                                    <h3 className='text-2xl'>⭐{object.rating}</h3>
-                                </div>
-                                <div>
-                                    <button
-                                     onClick={()=>setIsSelected(false)}
-                                     className={`w-full bg-black p-5 rounded-4xl mt-20  text-2xl ${isSelected? 'text-white':'text-red-500'}`}
+                <h3>{object.difficulty}</h3>
+                <h3 className='text-2xl'>⭐{object.rating}</h3>
+            </div>
+            <div>
+                {/* <button
+                                     onClick={ ()=>handleSelectObject()}
+ssNa                                     clame={`w-full bg-black p-5 rounded-4xl mt-20  text-2xl ${isSelected? 'text-white':'text-red-500'}`}
                                     // className='w-full bg-black p-5 rounded-4xl mt-20 text-white text-2xl'
                                     
-                                    >Add to Stack</button>
-                                </div>
+                                    >Add to Stack
+                                    </button> */}
 
-                            </div>
+               <button onClick={handleSelectObject}
+               className={`w-full p-5 rounded-4xl font-bold mt-20 text-2xl ${isSelected? 'text-white  bg-black':'text-red-500 bg-amber-100'}`}
+               >
+                {isSelected?'Add to Stack':'Already Add'}
+               </button>
+            </div>
+
+        </div>
     );
 };
 

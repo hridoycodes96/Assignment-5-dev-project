@@ -1,4 +1,4 @@
-import React from 'react';
+
 import type { Iobject } from '../../types/objectType';
 
 
@@ -8,12 +8,15 @@ interface tipo{
 
 const AvailableObjects = ({ objects }:tipo) => {
     console.log(objects, "players from avil")
+   
+
+
     return (
         <div className='container mx-auto grid grid-cols-4 gap-6 mt-6 '>
             <div className='col-span-3 grid grid-cols-3 gap-4'>
                 {
                     objects.map((object: Iobject) => {
-                        return (
+                        return ( 
                             <div className='p-6 border rounded-4xl'>
                                 <div className='flex items-center justify-between '>
 
@@ -38,7 +41,7 @@ const AvailableObjects = ({ objects }:tipo) => {
                                     <h3 className='text-2xl'>⭐{object.rating}</h3>
                                 </div>
                                 <div>
-                                    <button className='w-full bg-black p-5 rounded-4xl mt-20 text-white text-2xl'>Add to Stack</button>
+                                    <button  className='w-full bg-black p-5 rounded-4xl mt-20 text-white text-2xl'>Add to Stack</button>
                                 </div>
 
                             </div>
@@ -53,10 +56,11 @@ const AvailableObjects = ({ objects }:tipo) => {
             <div>
                 <div className="border rounded-xl p-5 h-fit">
         <h2 className="font-bold text-lg">
-          Your Stack
+          Your Stack:
         </h2>
 
         <p className="text-sm text-gray-400 mt-2">
+            
           No technologies selected yet.
         </p>
 

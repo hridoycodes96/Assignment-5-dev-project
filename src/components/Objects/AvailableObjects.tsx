@@ -1,7 +1,12 @@
 import React from 'react';
 import type { Iobject } from '../../types/objectType';
 
-const AvailableObjects = ({ objects }) => {
+
+interface tipo{
+    objects:Iobject[]
+}
+
+const AvailableObjects = ({ objects }:tipo) => {
     console.log(objects, "players from avil")
     return (
         <div className='container mx-auto grid grid-cols-4 gap-6 mt-6 '>

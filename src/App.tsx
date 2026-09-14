@@ -9,6 +9,7 @@ import type { Iobject } from "./types/objectType";
 import TechContainer from "./components/TechContainer";
 import StackSidebar from "./components/StackSidebar";
 import { toast } from "react-toastify";
+import Footer from "./Footer";
 
 
 
@@ -84,13 +85,9 @@ function App() {
         </div>
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
 
 
-      {/* <Suspense fallback={<h2>Loading ...</h2>}>
-
-      <Objects objectsPromise ={objectsPromise} />
-      </Suspense> */}
     </main>
     
 

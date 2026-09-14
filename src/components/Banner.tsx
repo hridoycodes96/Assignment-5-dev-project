@@ -1,4 +1,4 @@
-import React from 'react';
+
 import matin from '../assets/banner-stack.png'
 const Banner = () => {
     return (
